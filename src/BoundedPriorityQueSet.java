@@ -27,5 +27,10 @@ maxSize = 10;
         return queue.isEmpty();
     }
 
-    //
+    //A method called isFull() that takes no parameters. This should return whether the queue is currently full.
+    public boolean isFull() {
+        return queue.size() == maxSize;
+    }
+
+
 }
