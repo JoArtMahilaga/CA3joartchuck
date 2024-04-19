@@ -3,12 +3,12 @@ import java.util.ListIterator;
 
 public class BoundedPriorityQueSet {
 
-   private int maxSize;
-   private LinkedList<Task> queue = new LinkedList<>();
+    private int maxSize;
+    private LinkedList<Task> queue = new LinkedList<>();
 
     //A default constructor that sets the maximum size of the queue to be 10 Tasks.
     public BoundedPriorityQueSet() {
-maxSize = 10;
+        maxSize = 10;
     }
 
 
@@ -33,11 +33,18 @@ maxSize = 10;
         return queue.size() == maxSize;
     }
 
-    private int calcPosition(Task newTask) {
+    private int calcPosition(Task newTask) throws DuplicateElementException {
         int i = 0;
+        ListIterator<Task> iterator = queue.listIterator();
 
-//TO BE FILLED
+        while (iterator.hasNext()) {
+            Task currentTask = iterator.next();
+
+            if (currentTask.equals(newTask)) {
+                throw new DuplicateElementException("Duplicate Task " + newTask);
+            }
+            return i;
+        }
+        return i;
     }
-
-
 }
