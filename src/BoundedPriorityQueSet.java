@@ -13,5 +13,19 @@ maxSize = 10;
 
     public BoundedPriorityQueSet(int maxSize) {
         this.maxSize = maxSize;
+        this.queue = new LinkedList<>();
     }
+
+    //A method called size() that takes no parameters & returns the number of Tasks currently stored in your queue.
+    public int size() {
+        return queue.size();
+    }
+
+    //A method called isEmpty() that takes no parameters. This should return whether there is data currently stored
+    //in the queue.
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
+    //
 }
