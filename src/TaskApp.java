@@ -82,9 +82,15 @@ public class TaskApp {
                     System.out.println("Number of tasks remaining: " + queue.size());
                     break;
 
+
+                case 5:
+                    System.out.println("Space remaining in the queue: " + (queue.getMaxSize() - queue.size()));
+                    break;
+
             }
 
         }
+
     }
 
 }

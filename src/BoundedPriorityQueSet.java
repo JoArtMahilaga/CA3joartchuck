@@ -3,6 +3,9 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 public class BoundedPriorityQueSet {
+    public int getMaxSize() {
+        return this.maxSize;
+    }
 
     private static final int MAX_SIZE = 10;
     private int maxSize;
