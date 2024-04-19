@@ -1,7 +1,9 @@
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Text {
+public class Task {
+
+
 
     private String owner;
     private String description;
@@ -9,7 +11,7 @@ public class Text {
 
     private LocalDate deadline;
 
-    public Text(String owner, String description, LocalDate deadline) {
+    public Task(String owner, String description, LocalDate deadline) {
         this.owner = owner;
         this.description = description;
         this.deadline = deadline;
@@ -43,7 +45,7 @@ public class Text {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Text text)) return false;
+        if (!(o instanceof Task text)) return false;
         return Objects.equals(owner, text.owner) && Objects.equals(description, text.description) && Objects.equals(deadline, text.deadline);
     }
 
