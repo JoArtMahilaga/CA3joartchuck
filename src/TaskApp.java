@@ -15,6 +15,7 @@ public class TaskApp {
         boolean riskyMethod = new Random().nextBoolean();
         System.out.println("Enter the number of tasks for the queue: ");
         int maxSize = sc.nextInt();
+        sc.nextLine();
 
         BoundedPriorityQueSet queue = new BoundedPriorityQueSet(maxSize);
 
@@ -29,6 +30,8 @@ public class TaskApp {
             System.out.println("6. Exit the program");
             System.out.print("Select an option: ");
             int choice = sc.nextInt();
+
+            sc.nextLine();
 
             switch(choice) {
                 case 1:
@@ -53,6 +56,32 @@ public class TaskApp {
                         System.out.println(e.getMessage());
                     }
                     break;
+
+                case 2:
+                    Task nextTask = queue.peek();
+                    if (nextTask == null) {
+                        System.out.println("No task is next, the queue is empty.");
+                    } else {
+                        System.out.println("Next task: " + nextTask);
+                    }
+                    break;
+
+                case 3:
+                    Task removedTask = queue.poll();
+                    if (removedTask == null) {
+                        System.out.println("No task to remove, the queue is empty.");
+                    } else {
+                        System.out.println("Task completed and removed: " + removedTask);
+                        if (queue.isEmpty()) {
+                            System.out.println("Congratulations, all tasks are done!");
+                        }
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Number of tasks remaining: " + queue.size());
+                    break;
+
             }
 
         }
