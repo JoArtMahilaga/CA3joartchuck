@@ -7,8 +7,6 @@ public class Task {
 
     private String owner;
     private String description;
-
-
     private LocalDate deadline;
 
     public Task(String owner, String description, LocalDate deadline) {
@@ -16,6 +14,10 @@ public class Task {
         this.description = description;
         this.deadline = deadline;
     }
+
+    public Task() {
+    }
+
 
     public String getOwner() {
         return owner;
