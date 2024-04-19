@@ -30,8 +30,32 @@ public class TaskApp {
             System.out.print("Select an option: ");
             int choice = sc.nextInt();
 
+            switch(choice) {
+                case 1:
+                    System.out.println("Enter owner name: ");
+                    String owner = sc.nextLine();
+                    System.out.print("Enter task description: ");
+                    String description = sc.nextLine();
+                    System.out.print("Enter deadline (yyyy-mm-dd): ");
+                    String dateString = sc.nextLine();
+                    LocalDate deadline = LocalDate.parse(dateString);
+                    Task newTask = new Task(owner, description, deadline);
+
+                    try {
+                        if (riskyMethod) {
+                            queue.add(newTask);
+                        } else {
+                            if (!queue.offer(newTask)) {
+                                System.out.println("Task could not be added (queue might be full or task already exists).");
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+            }
 
         }
-
     }
+
 }
