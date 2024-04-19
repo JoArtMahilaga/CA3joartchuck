@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class BoundedPriorityQueSet {
 
@@ -30,6 +31,12 @@ maxSize = 10;
     //A method called isFull() that takes no parameters. This should return whether the queue is currently full.
     public boolean isFull() {
         return queue.size() == maxSize;
+    }
+
+    private int calcPosition(Task newTask) {
+        int i = 0;
+
+//TO BE FILLED
     }
 
 
