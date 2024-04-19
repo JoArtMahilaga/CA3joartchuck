@@ -1,5 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
-import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 public class BoundedPriorityQueSet {
@@ -48,6 +50,18 @@ public class BoundedPriorityQueSet {
         return queue.size();
 
     }
+
+    public void writeTasksToFile(String filename) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            for (Task task : queue) {
+                writer.println(task.toString());
+            }
+            System.out.println("Tasks successfully written to file.");
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
 
     //This method adds a new tasks to the que if space is available and theres no duplicates that exists.
     public void add(Task newTask) throws DuplicateElementException {

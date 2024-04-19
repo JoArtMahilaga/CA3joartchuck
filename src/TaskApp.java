@@ -87,10 +87,34 @@ public class TaskApp {
                     System.out.println("Space remaining in the queue: " + (queue.getMaxSize() - queue.size()));
                     break;
 
+
+                case 6:
+                    System.out.println("Exiting program and writing remaining tasks to file.");
+                    queue.writeTasksToFile("remaining_tasks.txt");
+                    exit = true; //exit set to true to break the loop
+                    break;
+
+                default:
+                    System.out.println("Invalid option. Please try again.");
+
             }
 
         }
 
+
+        System.out.print("Guess the method used (type 'risky' or 'safe'): ");
+        String guess = sc.nextLine();
+        boolean guessedRisky = guess.trim().equalsIgnoreCase("risky");
+        if (guessedRisky == riskyMethod) {
+            System.out.println("Correct! You guessed the method.");
+        } else {
+            System.out.println("Incorrect. Better luck next time!");
+        }
+        sc.close();
     }
 
 }
+
+
+
+
